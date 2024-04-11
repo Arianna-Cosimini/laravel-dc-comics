@@ -38,7 +38,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        $book = Book::find($book);
+        
         return view('pasta.show', compact('pasta'));
     }
 
