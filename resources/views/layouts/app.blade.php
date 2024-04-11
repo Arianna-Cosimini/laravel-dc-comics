@@ -7,8 +7,12 @@
     <title>Titolo</title>
 
     @vite('resources/js/app.js')
+
+    <style>
+    
+    </style>
 </head>
-<body>
+<body data-bs-theme="dark">
     
     @yield('content');
     
