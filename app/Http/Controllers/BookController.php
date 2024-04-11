@@ -22,7 +22,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view("book.create");
     }
 
     /**
@@ -30,7 +30,20 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // creiamo una nuova book
+
+
+        $newBook = new book();
+        $newBook->title = $request->title;
+        $newBook->description = $request->description;
+        $newBook->type = $request->type;
+        $newBook->series = $request->series;
+
+        $newBook->save();
+
+        // spostiamo l'utente nella index
+        return redirect()->route('books.index');
+
     }
 
     /**
@@ -39,7 +52,7 @@ class BookController extends Controller
     public function show(Book $book)
     {
         
-        return view('pasta.show', compact('pasta'));
+        return view('book.show', compact('book'));
     }
 
     /**
