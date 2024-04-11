@@ -16,12 +16,12 @@ return new class extends Migration
             $table->string("title");
             $table->text("description")->nullable();
             $table->binary("thumb");
-            $table->decimal("price", 8, 2);
+            $table->string("price");
             $table->string("series");
             $table->date("sale_date");
             $table->string("type");
-            $table->json("artists");
-            $table->json("writers");
+            $table->text("artists");
+            $table->text("writers");
             $table->timestamps();
         });
     }
