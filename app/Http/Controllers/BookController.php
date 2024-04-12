@@ -43,7 +43,6 @@ class BookController extends Controller
 
         // spostiamo l'utente nella index
         return redirect()->route('books.index');
-
     }
 
     /**
@@ -51,7 +50,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        
+
         return view('book.show', compact('book'));
     }
 
@@ -61,15 +60,23 @@ class BookController extends Controller
     public function edit(Book $book)
     {
         return view('book.edit');
-        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Book $book)
     {
-    
+        
+        // codice per modificare il record 
+        $book->title = $request->title;
+        $book->description = $request->description;
+        $book->type = $request->type;
+        $book->series = $request->series;
+
+        $book->save();
+
+        return redirect()->route('books.show', $book->id);
     }
 
     /**
