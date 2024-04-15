@@ -97,11 +97,23 @@ class BookController extends Controller
     private function validation($data)
     {
 
-        $validator = Validator::make($data, [
-            'title' => 'required|max:100',
-            'description' => 'nullable|max:5000',
-            'type' => 'required|max:50',
-            'series' => 'required|max:100'
-        ]);
+        $validator = Validator::make(
+            $data,
+            [
+                'title' => 'required|max:100',
+                'description' => 'nullable|max:5000',
+                'type' => 'required|max:50',
+                'series' => 'required|max:100'
+            ],
+            [
+                'title.required' => 'Il titolo deve essere inserito',
+                'title.max' => "Il titolo deve avere massimo :max caratteri",
+                'type.max' => "La tipologia deve avere massimo :max caratteri",
+                'type.required' => 'La tipologia deve essere inserita',
+                'description.max' => "Inserisci una descrizione di massimo :max caratteri",
+                'series.required' => "Il tipo di serie deve essere inserito",
+                'series.max' => "Inserisci il tipo di serie di massimo :max caratteri",
+            ]
+        )->validate();
     }
 }

@@ -21,7 +21,7 @@
 
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione</label>
-                <textarea type="text" class="form-control @error('title') is-invalid @enderror" id="description" name="description" rows="4">{{ old('description') ?? $book->description}}</textarea>
+                <textarea type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="4">{{ old('description') ?? $book->description}}</textarea>
                 @error('description')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -31,7 +31,7 @@
 
             <div class="mb-3">
                 <label for="type" class="form-label">Tipologia</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="type" name="type" value="{{ old('type') ?? $book->type}}">
+                <input type="text" class="form-control @error('type') is-invalid @enderror" id="type" name="type" value="{{ old('type') ?? $book->type}}">
                 @error('type')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -41,7 +41,7 @@
 
             <div class="mb-3">
                 <label for="src" class="form-label">Tipo di serie</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="series" name="series" value="{{ old('series') ?? $book->series}}">
+                <input type="text" class="form-control @error('series') is-invalid @enderror" id="series" name="series" value="{{ old('series') ?? $book->series}}">
                 @error('series')
                     <div class="invalid-feedback">
                         {{ $message }}
