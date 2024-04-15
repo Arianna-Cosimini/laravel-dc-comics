@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use Illuminate\Support\Facades\Validator;
 
 class BookController extends Controller
 {
@@ -59,7 +60,7 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        return view('book.edit');
+        return view('book.edit', compact('book'));
     }
 
     /**
@@ -82,8 +83,22 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Book $book)
     {
-        //
+        $book->delete();
+
+        return redirect()->route('books.index');
+    }
+
+
+    private function validation ($data){
+    
+        $validator = Validator::make($data, [
+            'title'=> 'required|max:100',
+            'description'=> 'nullable|max:5000',
+            'type'=> 'required|max:50',
+            'series'=> 'required|max:100'
+        ]);
     }
 }
+

@@ -25,8 +25,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="src" class="form-label">Tipo dis serie</label>
-                <input type="text" class="form-control" id="src" name="src" value="{{ $book->src }}">
+                <label for="src" class="form-label">Tipo di serie</label>
+                <input type="text" class="form-control" id="src" name="src" value="{{ $book->series }}">
             </div>
 
             <button type="submit" class="btn btn-primary">Salva</button>
