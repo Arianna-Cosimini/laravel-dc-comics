@@ -31,6 +31,9 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validation($request->all());
+
         // creiamo una nuova book
 
 
@@ -68,7 +71,7 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        
+        $this->validation($request->all());
         // codice per modificare il record 
         $book->title = $request->title;
         $book->description = $request->description;
@@ -91,14 +94,14 @@ class BookController extends Controller
     }
 
 
-    private function validation ($data){
-    
+    private function validation($data)
+    {
+
         $validator = Validator::make($data, [
-            'title'=> 'required|max:100',
-            'description'=> 'nullable|max:5000',
-            'type'=> 'required|max:50',
-            'series'=> 'required|max:100'
+            'title' => 'required|max:100',
+            'description' => 'nullable|max:5000',
+            'type' => 'required|max:50',
+            'series' => 'required|max:100'
         ]);
     }
 }
-
