@@ -47,13 +47,13 @@
                 <label for="cooking-time" class="form-label">Tipo di serie</label>
                 <input type="text" class="form-control @error('series') is-invalid @enderror" id="series"
                     name="series" value="{{ old('series') }}">
-                @error('series')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-
+                    @error('series')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                
             <button type="submit" class="btn btn-primary">Salva</button>
 
         </form>
